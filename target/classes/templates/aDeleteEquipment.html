@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipment - Naviair</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <a class="logo" href="/adminEquipment"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png" width="200"  > </a>
+    </nav>
+    <ul>
+
+        <li><a class="active" href="/adminEquipment">Equipment</a></li>
+        <li><a href="/adminService">Services</a></li>
+        <li><a href="/adminApplication">Applications</a></li>
+        <li><a href="#adminUser">Users</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+    <div class="container">
+        <a onclick="history.back()" style="font-size: 30px; text-decoration:none; color: black ">&#8678;</a>
+
+
+        <h1>Delete Equipment</h1>
+
+        <h4>Are you sure you want to delete:</h4>
+        <form action="#" th:action="@{/aDeleteEquipment}"  method="post" >
+            <h2 th:text="${'Serial No. ' + equipment.serialNo} "></h2>
+            <h2 th:text="${equipment.equipmentName + ' From: ' +  equipment.manufacturerName + ' Date: '+ equipment.equipmentDate}"></h2>
+
+
+            <input type="hidden"  th:value="${equipment.idEquipment}" name="id"  />
+            <input type="submit" value="YES" class="Button createButton w"/>
+            <a href="/adminEquipment" class="Button noButton  w" >NO</a>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

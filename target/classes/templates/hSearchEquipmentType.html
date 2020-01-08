@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <title>IT Equipment - Naviair</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <nav style="padding-bottom: 49px">
+        <a class="logo" href="/helpdeskEquipmentEquipment"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png"
+                width="200" > </a>
+
+
+    </nav>
+
+    <ul>
+        <li><a class="active" href="/helpdeskEquipment">Equipment</a></li>
+        <li><a href="#helpdeskService">Services</a></li>
+        <li><a href="#helpdesknApplication">Applications</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+    <br>
+
+    <div class="container">
+        <div class="w3-container">
+            <a onclick="history.back()" style="font-size: 30px; text-decoration:none; color: black ">&#8678;</a>
+            <h1 > IT - Equipment</h1>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Equipment Name</th>
+                    <th style="width: 500px">Equipment Type</th>
+                    <th style="background-color: #7c8486; width: 30px"></th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="equipment : ${equipment_data}">
+                    <td th:text="${equipment.equipmentName}"></td>
+                    <td th:text="${equipment.equipmentType}"></td>
+                    <td>
+                        <a th:href="${'/hDetailsEquipment?id='+ equipment.idEquipment}" class="Button detailsButton" >Details</a>
+                        <!--<a th:href="${'/editEquipment?id='+ equipment.idEquipment}" class="Button editButton">Edit</a>-->
+                        <!--<a th:href="${'/deleteEquipment?id='+ equipment.idEquipment}" class="Button deleteButton">Delete</a>-->
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+
+
+</body>
+</html>

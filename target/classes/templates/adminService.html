@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <title>Service - Naviair</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <nav style="padding-bottom: 49px">
+        <a class="logo" href="/adminEquipment"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png"
+                width="200"> </a>
+
+
+    </nav>
+
+    <ul>
+        <li><a href="/adminEquipment">Equipment</a></li>
+        <li><a class="active" href="/adminService">Services</a></li>
+        <li><a href="/adminApplication">Applications</a></li>
+        <li><a href="#adminUser">Users</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+    <br>
+    <div class="container">
+        <div class="w3-container" >
+
+            <h1>
+                <a onclick="document.getElementById('id04').style.display='block'"
+                   style="color: black; text-decoration:none;font-size: 34px; float: right; margin: 15px; "
+                   class="fa fa-search"></a>
+
+                <a onclick="document.getElementById('id03').style.display='block'"
+                   style="color: black; text-decoration:none;font-size: 34px;float: right; margin: 15px;"
+                   class="fa fa-plus"></a>
+
+
+
+
+
+                Service</h1>
+            <div id="id03" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                    <span onclick="document.getElementById('id03').style.display='none'"
+                          class="w3-button w3-display-topright">&times;</span>
+                        <form action="/aCreateService" method="post">
+                            <br>
+                            <h3>Create Service</h3>
+                            <br>
+                            <label for="">Service Type</label><br>
+                            <input type="text" name="serviceType" placeholder="Name" required>
+                            <br>
+                            <input type="submit" class="createButton Button" value="Create">
+                            <br>
+                            <br>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="id04" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                    <span onclick="document.getElementById('id04').style.display='none'"
+                          class="w3-button w3-display-topright">&times;</span>
+                        <h3>Search Service Type</h3>
+                        <form autocomplete="off" action="/aDetailsServiceType">
+                            <div class="autocomplete" style="width:500px;">
+                                <input id="service.serviceType" type="text" name="string" placeholder="Name">
+
+                            <input style="background-color: #c4d84b" type="submit" value="Search">
+                    </div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Service Type</th>
+
+                <th style="background-color: #7c8486; width: 30px"></th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="service : ${service_data}">
+                <td th:text="${service.serviceType}"></td>
+
+                <td>
+
+                    <a th:href="${'/aDeleteService?id='+ service.idService}" class="Button deleteButton">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+</div>
+<footer>
+
+</footer>
+
+
+</body>
+</html>

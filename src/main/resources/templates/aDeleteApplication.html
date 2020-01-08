@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Application - Naviair</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a class="logo" href="/adminEquipment"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png" width="200"  > </a>
+    </nav>
+    <ul>
+        <li><a href="/adminEquipment">Equipment</a></li>
+        <li><a  href="/adminService">Services</a></li>
+        <li><a class="active" href="/adminApplication">Applications</a></li>
+        <li><a href="#adminUser">Users</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+    <br>
+    <br>
+
+    <div class="container">
+        <h1>Delete Application</h1>
+        <h2>Are you sure you want to delete</h2>
+
+        <form action="#" th:action="@{/aDeleteApplication}"  method="post" >
+            <p th:text="${app.applicationName + ' From: ' +  app.manufacturerName }"></p>
+            <input type="hidden"  th:value="${app.idApplication}" name="id"  />
+            <input type="submit" value="YES" class="Button createButton w"/>
+            <a href="/adminApplication" class="Button deleteButton  w" >NO</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

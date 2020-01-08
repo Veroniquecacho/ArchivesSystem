@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Details - Naviair</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a class="logo" href="/adminEquipment"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png" width="200"  > </a>
+    </nav>
+    <ul>
+
+        <li><a class="active" href="/adminEquipment">Equipment</a></li>
+        <li><a href="/adminService">Services</a></li>
+        <li><a href="/adminApplication">Applications</a></li>
+        <li><a href="#adminUser">Users</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+
+    <div class="container">
+        <a onclick="history.back()" style="font-size: 30px; text-decoration:none; color: black ">&#8678;</a>
+
+        <div style=" float: right">
+            <br>
+            <br>
+            <br>
+            <a th:href="${'/aUpdateEquipment?id='+ equipment.idEquipment}" class="Button editButton">Edit</a>
+            <a th:href="${'/aDeleteEquipment?id='+ equipment.idEquipment}" class="Button deleteButton">Delete</a>
+        </div>
+        <h1>Details Equipment</h1>
+        <p th:text="'ID: ' + ${equipment.idEquipment}"></p>
+        <p th:text="'Date: ' + ${equipment.equipmentDate}"></p>
+        <p th:text="'Equipment Name: ' + ${equipment.equipmentName}"></p>
+        <p th:text="'Equipment Type: ' + ${equipment.equipmentType}"></p>
+        <p th:text="'Manufacturer Name: ' + ${equipment.manufacturerName}"></p>
+        <p th:text="'Serial No: ' + ${equipment.serialNo}"></p>
+
+
+        <h2> Includes:</h2>
+        <p>Service:</p>
+        <!--<p th:text="Services: ' + ${service.serviceType} "></p>-->
+        <p>Service will come later</p>
+        <p>Application:</p>
+        <p>Application will come later</p>
+
+        <h3>Note:</h3>
+
+        <p style="" th:text="${equipment.note}"></p>
+
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

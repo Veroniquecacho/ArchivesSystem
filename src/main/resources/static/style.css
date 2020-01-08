@@ -1,0 +1,148 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+
+    padding: 5px 8px 5px 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+input {
+    display: block;
+    width: 50%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+}
+
+/* Buttons */
+/* https://www.w3schools.com/css/css3_buttons.asp */
+
+.Button {
+    background-color: #c4d84b; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    -webkit-transition-duration: 0.1s; /* Safari */
+    transition-duration: 0.1s;
+}
+
+.createButton {
+    background-color: #c4d84b;
+    color: black;
+}
+
+.serviceButton{
+    background-color: gray;
+}
+.appButton{
+    background-color: gray;
+}
+
+/* Green */
+.detailsButton {
+    padding: 7px 30px;
+    background-color: #c4d84b;
+    color: black;
+}
+
+/* Black */
+.editButton {
+    padding: 7px 30px;
+    background-color: #f2dd48;
+    color: black;
+}
+
+/* red */
+.deleteButton {
+    padding: 7px 30px;
+    background-color: #c1612a;
+    color: black;
+}
+.noButton {
+    padding: 7px 10px;
+    background-color: #7c8486;
+    color: black;
+}
+
+
+.Button:hover {
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.w {
+    width: 20%;
+}
+
+
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+
+.active {
+    background-color: #c4d84b;
+    background-size: 5px 5px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+

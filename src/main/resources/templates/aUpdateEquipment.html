@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"><head>
+    <title>Update - Naviair</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a class="logo" href="/adminEquipment"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png" width="200"  > </a>
+    </nav>
+    <ul>
+        <li><a class="active" href="/adminEquipment">Equipment</a></li>
+        <li><a href="/adminService">Services</a></li>
+        <li><a href="/adminApplication">Applications</a></li>
+        <li><a href="#adminUser">Users</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+
+    <div class="container">
+        <a onclick="history.back()" style="font-size: 30px; text-decoration:none; color: black ">&#8678;</a>
+
+
+        <h1>Update Equipment</h1>
+
+
+        <form action="/aUpdateEquipment" method="post">
+
+            <input type="hidden"  th:value="${equipment.idEquipment}" name="idEquipment"  />
+            <label for="">Date</label><br>
+            <input type="text" th:value="${equipment.equipmentDate}" name="equipmentDate">
+            <br>
+            <label for="">Equipment Name</label><br>
+            <input type="text" th:value="${equipment.equipmentName}" name="equipmentName">
+            <br>
+
+            <label  for="">Equipment Type</label>
+
+            <select name="equipmentType">
+                <option th:value="${equipment.equipmentType}" name="equipmentName"> </option>
+                <option value="Laptop">Laptop</option>
+                <option value="Tablet">Tablet</option>
+                <option value="Phone">Phone</option>
+                <option value="PC">PC</option>
+                <option value="Screen">Screen</option>
+                <option value="Server">Server</option>
+            </select>
+
+
+            <label for="">Manufacturer Name</label>
+            <select name="manufacturerName">
+                <option th:value="${equipment.manufacturerName}" name="manufacturerName" ></option>
+                <option value="Microsoft">Microsoft</option>
+                <option value="Apple">Apple</option>
+                <option value="Dell">Dell</option>
+                <option value="HP">PH</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Cisco">Cisco</option>
+                <option value="Xerox">Xerox</option>
+                <option value="Netgear">Netgear</option>
+                <option value="Coopans">Coopans</option>
+                <option value="Thales">Thales</option>
+                <option value="Indra">Indra</option>
+
+            </select>
+            <br>
+            <label for="">Serial No.</label><br>
+            <input type="text" th:value="${equipment.serialNo}" name="serialNo" required>
+            <br>
+
+            <label for="">Note</label><br>
+            <textarea th:text="${equipment.note}" name="note"  id="" cols="30" rows="10" ></textarea>
+
+            <br>
+            <input type="submit" class="Button" value="Update">
+
+
+
+        </form>
+    </div>
+</div>
+
+
+
+</body>
+</html>

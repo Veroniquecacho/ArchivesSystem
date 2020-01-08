@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <title>IT Equipment - Naviair</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <nav style="padding-bottom: 49px">
+        <a class="logo" href="/helpdeskEquipment"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png"
+                width="200" > </a>
+
+    </nav>
+
+    <ul>
+        <li><a class="active" href="/helpdeskEquipment">Equipment</a></li>
+        <li><a href="/helpdeskService">Services</a></li>
+        <li><a href="/helpdesknApplication">Applications</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+    <br>
+
+    <div class="container">
+        <div class="w3-container">
+            <h1>   <a onclick="document.getElementById('id07').style.display='block'"
+                      style="color: black; text-decoration:none;font-size: 34px;float: right; margin: 15px;"  class="fa fa-search"></a>
+                IT Equipment</h1>
+            <div id="id07" class="w3-modal" >
+                <div class="w3-modal-content" style="width: 600px">
+                    <div class="w3-container">
+                    <span onclick="document.getElementById('id07').style.display='none'"
+                          class="w3-button w3-display-topright">&times;</span>
+                        <form action="/hDetailsEquipment">
+
+                            <h3>Search Equipment ID</h3>
+                            <div class="autocomplete" style="width:500px;">
+                                <input id="equipment.idEquipment" type="search" name="id" placeholder="type" required>
+                                <input type="submit" value="Search">
+                            </div>
+                        </form>
+
+                        <h3>Search Equipment Type</h3>
+                        <form autocomplete="on" action="/aSearchEquipmentType">
+                            <div class="autocomplete" style="width:500px;">
+                                <input id="equipment.equipmentType" type="search" name="string" placeholder="Name" required>
+                                <input style="background-color: #c4d84b" type="submit" value="Search">
+                            </div>
+
+                        </form>
+                        <br>
+                        <br>
+                        <h3>Search Serial No.</h3>
+                        <form autocomplete="off" action="/aSerialNoEquipment">
+                            <div class="autocomplete" style="width:500px;">
+                                <input id="equipment.equipmentSerialNo" type="search" name="serialNo" placeholder="xxxxxxxxxxxx" required>
+                                <input style="background-color: #c4d84b" type="submit" value="Search">
+                            </div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Equipment Type</th>
+                <th style="width: 500px">Equipment Name</th>
+                <th style="background-color: #7c8486; width: 30px"></th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="equipment : ${equipment_data}">
+                <td th:text="${equipment.equipmentName}"></td>
+                <td th:text="${equipment.equipmentType}"></td>
+                <td>
+                    <a th:href="${'/hDetailsEquipment?id='+ equipment.idEquipment}" class="Button detailsButton" >Details</a>
+
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+<footer>
+
+</footer>
+
+
+</body>
+</html>

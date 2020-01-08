@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Details - Naviair</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout.css">
+
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a class="logo" href="/adminEquipment"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png" width="200"  > </a>
+    </nav>
+    <ul>
+
+        <li><a href="/adminEquipment">Equipment</a></li>
+        <li><a class="active"  href="/adminService">Services</a></li>
+        <li><a href="/adminApplication">Applications</a></li>
+        <li><a href="#adminUser">Users</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+    <br>
+    <br>
+
+    <div class="container">
+        <h1>Details Service</h1>
+        <p th:text="'ID: ' + ${service.idService}"></p>
+        <p th:text="'Service Type: ' + ${service.serviceType}"></p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

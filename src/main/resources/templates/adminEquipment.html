@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <title>IT Equipment - Naviair</title>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <nav style="padding-bottom: 49px">
+        <a class="logo" href="/adminEquipment"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Naviair_Logo.svg/2000px-Naviair_Logo.svg.png"
+                width="200" > </a>
+
+
+    </nav>
+
+    <ul>
+
+
+        <li><a class="active" href="/adminEquipment">Equipment</a></li>
+        <li><a href="/adminService">Services</a></li>
+        <li><a href="/adminApplication">Applications</a></li>
+        <li><a href="#adminUser">Users</a></li>
+        <li style="float:right"><a href="/">Logout</a></li>
+    </ul>
+    <br>
+
+    <div class="container">
+        <div class="w3-container">
+            <h1>   <a onclick="document.getElementById('id02').style.display='block'"
+                      style="color: black; text-decoration:none;font-size: 34px;float: right; margin: 15px;"  class="fa fa-search"></a>
+                <a onclick="document.getElementById('id01').style.display='block'"
+                   style="color: black; text-decoration:none;font-size: 34px; float: right; margin: 15px; " class="fa fa-plus" ></a>
+
+
+                IT Equipment</h1>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content" style="width: 800px">
+                    <div class="w3-container">
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                          style="color: black; text-decoration:none;font-size: 34px;float: right; margin: 15px;" class="w3-button w3-display-topright">&times;</span>
+                        <form action="/aCreateEquipment" method="post">
+                            <br>
+                            <h3>Create Equipment</h3>
+                            <br>
+                            <lable for="">Equipment Name</lable>
+                            <div style=" float: right" >
+                                <br>
+                                <label for="serType">Services: </label>
+                                <select name="ServiceType" id="serType"> Service Type
+                                    <option value="">Virker ikke</option>
+                                </select>
+
+                                <br>
+                                <br>
+                                <label for="appName">Application: </label>
+                                <select name="ApplicationName" id="appName"> Application
+                                    <option value="">Virker ikke</option>
+                                </select>
+
+                                <br>
+                                <br>
+
+                                <label for="note">Note</label>
+                                <br>
+                                <textarea   name="note" id="note" cols="30" rows="10"></textarea>
+                            </div>
+
+                            <br>
+                            <input type="text" name="equipmentName" placeholder="Name" required>
+                            <br>
+                            <lable for="">Date</lable><br>
+                            <input type="Date" name="equipmentDate" placeholder="yyyy-mm-dd" required>
+                            <br>
+                            <lable for="">Equipment Type</lable>
+                            <select  name="equipmentType" required >
+                                <option value="">Equipment</option>
+                                <option value="Cable">Cable</option>
+                                <option value="Headset">Headset</option>
+                                <option value="Keyboard">Keyboard</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="Monitor">Monitor</option>
+                                <option value="PC">PC</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Printer">Printer</option>
+                                <option value="Router">Router</option>
+                                <option value="Server">Server</option>
+                                <option value="Tablet">Tablet</option>
+
+
+
+
+                            </select>
+                            <br>
+                            <br>
+                            <lable for="">Manufacturer Name</lable>
+                            <select name="manufacturerName" required>
+                                <option value="">Manufacturer</option>
+                                <option value="Acer">Acer</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Asus">Asus</option>
+                                <option value="Cisco">Cisco</option>
+                                <option value="Coopans">Coopans</option>
+                                <option value="Dell">Dell</option>
+                                <option value="HP">HP</option>
+                                <option value="HTC">HTC</option>
+                                <option value="Indra">Indra</option>
+                                <option value="LG">LG</option>
+                                <option value="Microsoft">Microsoft</option>
+                                <option value="Netgear">Netgear</option>
+                                <option value="Oracle">Oracel</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Thales">Thales</option>
+                                <option value="Xerox">Xerox</option>
+
+                            </select>
+                            <br>
+                            <br>
+                            <lable for="">Serial No.</lable><br>
+                            <input type="text" name="serialNo" placeholder="xxxxxxxxxx" required>
+
+                            <br>
+                            <br>
+                            <br>
+                            <input type="submit" class="createButton Button" value="Create">
+
+                            <br>
+                            <br>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="id02" class="w3-modal" >
+                <div class="w3-modal-content" style="width: 600px">
+                    <div class="w3-container">
+                    <span onclick="document.getElementById('id02').style.display='none'"
+                          class="w3-button w3-display-topright">&times;</span>
+                        <form action="/aDetailsEquipment">
+
+                            <h3>Search Equipment ID</h3>
+                            <div class="autocomplete" style="width:500px;">
+                                <input id="equipment.idEquipment" type="search" name="id" placeholder="type" required>
+                                <input style="background-color: #c4d84b" type="submit" value="Search">
+                            </div>
+
+                        </form>
+
+                        <br>
+                        <br>
+                        <h3>Search Equipment Type</h3>
+                        <form autocomplete="off" action="/aSearchEquipmentType">
+                            <div class="autocomplete" style="width:500px;">
+                                <input id="equipment.equipmentType" type="search" name="string" placeholder="Name"  required>
+                                <input style="background-color: #c4d84b" type="submit" value="Search">
+                            </div>
+
+                        </form>
+                        <br>
+                        <br>
+                        <h3>Search Serial No.</h3>
+                        <form autocomplete="off" action="/aSerialNoEquipment">
+                            <div class="autocomplete" style="width:500px;">
+                                <input id="equipment.equipmentSerialNo" type="search" name="serialNo" placeholder="xxxxxxxxxxxx" required>
+                                <input style="background-color: #c4d84b" type="submit" value="Search">
+                            </div>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Equipment Name</th>
+                <th >Equipment Type</th>
+                <th>Serial No.</th>
+                <th style="background-color: #7c8486; width: 30px"></th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="equipment : ${equipment_data}">
+                <td th:text="${equipment.idEquipment}"></td>
+                <td th:text="${equipment.equipmentName}"></td>
+                <td th:text="${equipment.equipmentType}"></td>
+                <td th:text="${equipment.serialNo}"></td>
+                <td>
+                    <a th:href="${'/aDetailsEquipment?id='+ equipment.idEquipment}" class="Button detailsButton" >Details</a>
+                    <!--<a th:href="${'/editEquipment?id='+ equipment.idEquipment}" class="Button editButton">Edit</a>-->
+                    <!--<a th:href="${'/deleteEquipment?id='+ equipment.idEquipment}" class="Button deleteButton">Delete</a>-->
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+<footer>
+
+</footer>
+
+
+</body>
+</html>
